@@ -82,6 +82,13 @@ tm_shape(tex_border) +
 ```{r}
 spill_sp <- as(oil_sf, "Spatial")
 spill_ppp <- as(spill_sp, "ppp")
+
+tx_sp <- as(tex_border, "Spatial")
+
+tx_owin <- as(tx_sp, "owin") #make this border the outer window for ppp
+
+all_ppp <-ppp(spill_ppp$x, spill_ppp$y, window = tx_owin)
+
 ```
 
 
